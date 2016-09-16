@@ -9,12 +9,12 @@ class Mysql{
 	 * @param $config string 配置数组
 	 */
 	public function __construct($config = array()){
-		$host = 'localhost';
-		$user = 'root';
-		$password = isset($config['password'])? $config['password'] : '';
-		$dbname = isset($config['dbname'])? $config['dbname'] : '';
-		$port = isset($config['port'])? $config['port'] : '3306';
-		$charset = isset($config['charset'])? $config['charset'] : 'utf8';
+		$host 		= 'localhost';
+		$user 		= 'root';
+		$password 	=  '';
+		$dbname 	=  '';
+		$port 		=  '3306';
+		$charset 	=  'utf8';
 		
 		$this->conn = @mysql_connect("$host:$port",$user,$password) or die('数据库连接错误');
 		mysql_select_db($dbname) or die('数据库选择错误');
