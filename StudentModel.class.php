@@ -10,9 +10,12 @@ class StudentModel extends Model{
     // 定义没有前缀的表名
     protected $tableName = 'stu';
     
-    // 定义了表的主键
+    // 定义了表的主键  tp内封装的
+    // pk属性定义当前数据表的主键名，默认值就是id，因此如果是id的话可以无需定义
     protected $pk = 'sno';
-    // 字段信息,将表的所有字段全部写入该属性。也能省略数据表分析过程
+    // 字段信息,将表的所有字段全部写入该属性。也能省略数据表分析过程  
+    // $fields :字段定义tp内封装好的
+    // 系统会在模型首次实例化的时候自动获取数据表的字段信息（而且只需要一次，以后会永久缓存字段信息，除非设置不缓存或者删除），如果是调试模式则不会生成字段缓存文件，则表示每次都会重新获取数据表字段信息。
     protected $fields = array(
         'sno','sname','spasswd','sage','ssex','sdept','saddtime'
     );
@@ -26,6 +29,13 @@ class StudentModel extends Model{
         'dept' => 'sdept'
     ); 
     // 自动验证定义
+    // 数据验证可以进行数据类型、业务规则、安全判断等方面的验证操作
+    //$validate:自动验证是ThinkPHP模型层提供的一种数据验证方法，可以在使用create创建数据对象的时候自动进行数据验证
+    //验证规则
+    //array(
+    	    array(验证字段1,验证规则,错误提示,[验证条件,附加规则,验证时间]),
+        	array(验证字段2,验证规则,错误提示,[验证条件,附加规则,验证时间]),
+   //);
     protected $_validate = array(
         // sname : 要验证的字段
         // username : 验证方法， 自定义的规则，6-12位字母数字下划线组合
