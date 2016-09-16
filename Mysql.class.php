@@ -9,8 +9,8 @@ class Mysql{
 	 * @param $config string 配置数组
 	 */
 	public function __construct($config = array()){
-		$host = isset($config['host'])? $config['host'] : 'localhost';
-		$user = isset($config['user'])? $config['user'] : 'root';
+		$host = 'localhost';
+		$user = 'root';
 		$password = isset($config['password'])? $config['password'] : '';
 		$dbname = isset($config['dbname'])? $config['dbname'] : '';
 		$port = isset($config['port'])? $config['port'] : '3306';
